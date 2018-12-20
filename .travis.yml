@@ -1,0 +1,9 @@
+sudo: required
+servies:
+  - docker
+
+before_install:
+  - docker build -t stevensuh/learning-docker -f Dockerfile.dev .
+
+script:
+  - docker run stevensuh/learning-docker npm run test -- --coverage
